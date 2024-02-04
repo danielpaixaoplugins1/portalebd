@@ -1,0 +1,66 @@
+<?php
+/**
+ * Plugin Name: EBD IAD Cacoal Management
+ * Plugin URI: http://iad.urlbr.net/ebdcacoal
+ * Description: Gerencia atividades acadêmicas para alunos da Escola Bíblica Dominical na Igreja Assembleia de Deus em Cacoal.
+ * Version: 2.2.1
+ * Author: Daniel Oliveira da Paixao
+ * Author URI: http://urlbr.net/dev
+ * License: GPL2
+ */
+
+defined('ABSPATH') or die('No script kiddies please!');
+
+function ebd_iad_cacoal_activate() {
+    ebd_iad_cacoal_create_tables();
+    // Outras configurações iniciais aqui, se necessário
+}
+
+function ebd_iad_cacoal_create_tables() {
+    // Código para criar as tabelas 'ebd_students' e 'ebd_feedback'
+}
+
+register_activation_hook(__FILE__, 'ebd_iad_cacoal_activate');
+
+function ebd_iad_cacoal_admin_menu() {
+    // Código para adicionar o menu de administração
+}
+
+add_action('admin_menu', 'ebd_iad_cacoal_admin_menu');
+
+function ebd_iad_cacoal_management_page() {
+    // Código para a página de administração principal
+    ebd_iad_cacoal_student_form();
+}
+
+function ebd_iad_cacoal_student_form($student_id = 0) {
+    // Código para o formulário de adicionar/editar alunos, com melhorias na UI
+}
+
+function ebd_iad_cacoal_save_student() {
+    // Código para salvar um aluno, com verificações de segurança aprimoradas
+}
+
+add_action('admin_post_ebd_iad_cacoal_save_student', 'ebd_iad_cacoal_save_student');
+
+function ebd_iad_cacoal_update_presence($student_id, $presence_status) {
+    // Código para atualizar a presença de um aluno
+}
+
+function ebd_iad_cacoal_register_pix_offer($student_id, $offer_amount, $pix_receipt) {
+    // Código para registrar uma oferta via PIX
+}
+
+function ebd_iad_cacoal_process_feedback($student_id, $feedback, $attachment) {
+    // Código para processar o feedback dos alunos
+}
+
+// Funções adicionais conforme necessário...
+
+// Incluir scripts e estilos para aprimorar a UI
+function ebd_iad_cacoal_enqueue_scripts() {
+    wp_enqueue_style('ebd_iad_cacoal_admin_style', plugins_url('admin.css', __FILE__));
+    wp_enqueue_script('ebd_iad_cacoal_admin_script', plugins_url('admin.js', __FILE__), array('jquery'), null, true);
+}
+
+add_action('admin_enqueue_scripts', 'ebd_iad_cacoal_enqueue_scripts');
